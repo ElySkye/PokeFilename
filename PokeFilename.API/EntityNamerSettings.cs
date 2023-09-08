@@ -6,10 +6,10 @@ namespace PokeFilename.API
     public class EntityNamerSettings
     {
         [Category("Entity Namer Selection"), Description("Select an entity namer preset")]
-        public EntityNamers Namer { get; set; }
+        public EntityNamers Namer { get; set; } = EntityNamers.CustomNamer;
 
         [Category("CustomNamer Settings"), Description("PKM Name format for Regular Pokemon")]
-        public string CustomPatternRegular { get; set; } = "{Species} - {Nickname} - {PID}";
+        public string CustomPatternRegular { get; set; } = "{(Species)Species}{(Gender)Gender}{ConditionalForm}";
 
         [Category("CustomNamer Settings"), Description("PKM Name format for Gameboy Pokemon")]
         public string CustomPatternGameBoy { get; set; } = "{Species} - {Nickname} - {DV16}";
