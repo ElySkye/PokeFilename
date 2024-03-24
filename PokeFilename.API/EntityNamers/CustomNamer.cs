@@ -5,6 +5,8 @@ namespace PokeFilename.API
 {
     public sealed class CustomNamer : IFileNamer<PKM>
     {
+        public string Name => "Default";
+
         private readonly string Regular;
         private readonly string Gameboy;
         public static readonly GameStrings Strings = GameInfo.GetStrings(GameLanguage.DefaultLanguage);
@@ -46,7 +48,7 @@ namespace PokeFilename.API
         private static string GetShinyTypeString(PKM pk) { //Copied from AnubisNamer
             if (!pk.IsShiny)
                 return string.Empty;
-            if (pk.Format >= 8 && (pk.ShinyXor == 0 || pk.FatefulEncounter || pk.Version == (int) GameVersion.GO))
+            if (pk.Format >= 8 && (pk.ShinyXor == 0 || pk.FatefulEncounter || pk.Version == GameVersion.GO))
                 return " ■";
             return " ★";
         }
